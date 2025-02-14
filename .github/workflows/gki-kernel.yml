@@ -172,7 +172,7 @@ jobs:
 
           # Change to common directory and apply SUSFS patch
           cd $GITHUB_WORKSPACE/android-kernel
-          cd ../common
+          cd ./common
           patch -p1 < 50_add_susfs_in_gki-${{ inputs.android_version }}-${{ inputs.kernel_version }}.patch || true
 
 
