@@ -165,7 +165,8 @@ jobs:
           cd ./KernelSU
           echo "Applying SUSFS patches..."
           patch -p1 --forward < 10_enable_susfs_for_ksu.patch || true
-          patch -p1 --forward < core_hook.c_fix.patch || true
+          sed -i '995d' ./kernel/core_hook.c #临时解决方法
+
           cd ..
           cp ./susfs4ksu/kernel_patches/50_add_susfs_in_gki-${{ inputs.version }}.patch ./android-kernel/common/
           cp ./susfs4ksu/kernel_patches/fs/* ./android-kernel/common/fs/
